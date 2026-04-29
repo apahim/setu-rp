@@ -1,0 +1,51 @@
+apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: setu-rp-pipeline
+spec:
+  params:
+    - name: repo-owner
+      type: string
+      default: "openshift"
+    - name: repo-name
+      type: string
+      default: "hypershift"
+    - name: db-path
+      type: string
+      default: "/workspace/data/hypershift.db"
+  workspaces:
+    - name: shared-data
+  tasks:
+    - name: collect
+      taskRef:
+        name: setu-rp-collect
+      params:
+        - name: repo-owner
+          value: $(params.repo-owner)
+        - name: repo-name
+          value: $(params.repo-name)
+        - name: db-path
+          value: $(params.db-path)
+      workspaces:
+        - name: data
+          workspace: shared-data
+    - name: analyze
+      runAfter: ["collect"]
+      taskRef:
+        name: setu-rp-analyze
+      params:
+        - name: db-path
+          value: $(params.db-path)
+      workspaces:
+        - name: data
+          workspace: shared-data
+    - name: report
+      runAfter: ["analyze"]
+      taskRef:
+        name: setu-rp-report
+      params:
+        - name: db-path
+          value: $(params.db-path)
+      workspaces:
+        - name: data
+          workspace: shared-data

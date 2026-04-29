@@ -1,0 +1,33 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: setu-rp-collect
+spec:
+  params:
+    - name: repo-owner
+      type: string
+    - name: repo-name
+      type: string
+    - name: db-path
+      type: string
+  workspaces:
+    - name: data
+  steps:
+    - name: collect
+      image: setu-rp:latest
+      env:
+        - name: GITHUB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-token
+              key: token
+        - name: DB_PATH
+          value: $(params.db-path)
+        - name: REPO_OWNER
+          value: $(params.repo-owner)
+        - name: REPO_NAME
+          value: $(params.repo-name)
+      script: |
+        #!/usr/bin/env bash
+        set -euo pipefail
+        bash scripts/collect.sh

@@ -1,0 +1,15 @@
+{
+  "id": 5555555555,
+  "pull_request_review_id": 9876543210,
+  "user": {
+    "id": 200,
+    "login": "reviewer1",
+    "type": "User",
+    "name": "Reviewer One"
+  },
+  "body": "Consider using a constant here.",
+  "path": "pkg/nodepool/scaling.go",
+  "created_at": "2024-01-18T15:30:00Z",
+  "updated_at": "2024-01-18T15:30:00Z",
+  "pull_request_url": "https://api.github.com/repos/openshift/hypershift/pulls/42"
+}

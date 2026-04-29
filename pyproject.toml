@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "setu-rp"
+version = "0.1.0"
+description = "Research data analysis framework for studying LLM-based code-review bot impact"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31",
+    "PyYAML>=6.0",
+    "scipy>=1.11",
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "python-dateutil>=2.8",
+    "vaderSentiment>=3.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.1",
+]
+dashboard = [
+    "streamlit>=1.28",
+    "plotly>=5.18",
+]
+
+[project.scripts]
+setu-rp = "setu_rp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100

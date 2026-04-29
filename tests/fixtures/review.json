@@ -1,0 +1,12 @@
+{
+  "id": 9876543210,
+  "user": {
+    "id": 200,
+    "login": "reviewer1",
+    "type": "User",
+    "name": "Reviewer One"
+  },
+  "state": "APPROVED",
+  "body": "LGTM",
+  "submitted_at": "2024-01-18T16:00:00Z"
+}

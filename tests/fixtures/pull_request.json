@@ -1,0 +1,33 @@
+{
+  "id": 1234567890,
+  "number": 42,
+  "title": "Fix nodepool scaling",
+  "state": "closed",
+  "user": {
+    "id": 100,
+    "login": "testuser",
+    "type": "User",
+    "name": "Test User"
+  },
+  "created_at": "2024-01-15T10:00:00Z",
+  "updated_at": "2024-01-20T14:00:00Z",
+  "closed_at": "2024-01-20T14:00:00Z",
+  "merged_at": "2024-01-20T14:00:00Z",
+  "merge_commit_sha": "abc123def456",
+  "additions": 50,
+  "deletions": 10,
+  "changed_files": 3,
+  "body": "This PR fixes nodepool scaling issues.",
+  "labels": [
+    {
+      "id": 500,
+      "name": "bug",
+      "description": "Something isn't working"
+    },
+    {
+      "id": 501,
+      "name": "area/nodepool",
+      "description": "Nodepool related"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+repository:
+  owner: "openshift"
+  name: "hypershift"
+study:
+  bot_adoption_date: "2025-08-26T00:00:00Z"
+  pre_window_months: 6
+  post_window_months: 6
+  sensitivity_windows: [1, 2, 3, 4, 6]
+reporting:
+  output_dir: "reports"
+  format: "both"
+github:
+  per_page: 100
+  max_retries: 3
+  rate_limit_buffer: 100
+storage:
+  db_path: "data/hypershift.db"
+governance:
+  tracked_files:
+    - "CONTRIBUTING.md"
+    - ".github/PULL_REQUEST_TEMPLATE.md"
+    - "OWNERS"
+    - "REVIEWERS"
+  keywords:
+    - "required"
+    - "approval"
+    - "reviewer"
+    - "bot"
+    - "automated"
+    - "policy"
+    - "checklist"
+    - "merge"
+    - "CI"
+    - "test"
+logging:
+  level: "INFO"
